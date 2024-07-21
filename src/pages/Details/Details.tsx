@@ -8,6 +8,7 @@ import { Overview, OverviewKeys } from '../../types';
 import styles from './Details.module.css';
 import { data } from '../../utils/data';
 import { DetailInfo } from '../../components/shared/DetailInfo/DetailInfo';
+import { Button } from '../../components/shared/Button/Button';
 
 export const Details = () => {
   const [selectedOption, setSelectedOption] =
@@ -31,8 +32,6 @@ export const Details = () => {
     [radius, rotation, temperature, revolution]
   );
 
-  console.log(details);
-
   const selectedInfo: Overview = useMemo(
     () => planetInfo[selectedOption as OverviewKeys],
     [selectedOption, planetInfo]
@@ -41,19 +40,9 @@ export const Details = () => {
   const handleInfo = (infoLabel: OverviewKeys) => {
     setSelectedOption(infoLabel);
   };
+
   return (
     <section className={styles.container}>
-      {/* {infoButtons.map(({ label }, index) => (
-        <Button
-          isActive={isActive === label}
-          color={color}
-          key={label}
-          itemNumber={index + 1}
-          onClick={() => setisActive(label)}
-        >
-          {label}
-        </Button>
-      ))} */}
       <div className={styles.mobile_btn_section}>
         {infoButtons.map(({ label }) => (
           <Sectionbutton
@@ -65,27 +54,55 @@ export const Details = () => {
           </Sectionbutton>
         ))}
       </div>
-      <img
-        className={styles.planet_img}
-        src={planetInfo.images['planet']}
-        alt=""
-      />
-      <section className={styles.content_container}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>{name}</h1>
-          <p className={styles.content_text}>{selectedInfo.content}</p>
-          <p className={styles.source}>
-            Source :
-            <strong>
-              <a href={selectedInfo.source} target="_blank">
-                Wikipedia
-              </a>
-            </strong>
-            <img src="/assets/icon-source.svg" alt="source" />
-          </p>
+      <div className={styles.img_content_container}>
+        <div className={styles.img_container}>
+          <img
+            className={styles.planet_img}
+            src={
+              planetInfo.images[
+                selectedOption === 'structure' ? 'internal' : 'planet'
+              ]
+            }
+            alt="planet"
+          />
+          {selectedOption === 'geology' && (
+            <img
+              className={styles.planet_img_geology}
+              src={planetInfo.images['geology']}
+              alt="planet"
+            />
+          )}
         </div>
-        {/* buttons tablet */}
-      </section>
+        <section className={styles.content_container}>
+          <div className={styles.content}>
+            <h1 className={styles.title}>{name}</h1>
+            <p className={styles.content_text}>{selectedInfo.content}</p>
+            <p className={styles.source}>
+              Source :
+              <strong>
+                <a href={selectedInfo.source} target="_blank">
+                  Wikipedia
+                </a>
+              </strong>
+              <img src="/assets/icon-source.svg" alt="source" />
+            </p>
+          </div>
+          {/* buttons tablet */}
+          <div className={styles.tablet_btns}>
+            {infoButtons.map(({ label }, index) => (
+              <Button
+                isActive={selectedOption === label}
+                name={name}
+                key={label}
+                itemNumber={index + 1}
+                onClick={() => setSelectedOption(label)}
+              >
+                {label}
+              </Button>
+            ))}
+          </div>
+        </section>
+      </div>
       <section className={styles.details}>
         {details.map((item) => (
           <DetailInfo

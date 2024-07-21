@@ -10,7 +10,12 @@ export interface PlanetI {
   images: Images;
 }
 
-export type OverviewKeys = 'overview' | 'structure' | 'geology'
+export interface MenuContextI {
+  toggle: () => void;
+  isOpen: boolean;
+}
+
+export type OverviewKeys = 'overview' | 'structure' | 'geology';
 
 export interface Images {
   planet: string;

@@ -4,9 +4,11 @@ import styles from './Header.module.css';
 import hamburger from '/assets/icon-hamburger.svg';
 import data from '../../../../public/data.json';
 import { planetColors, PlanetColorsI } from '../../../utils';
+import { useMenuContext } from '../../../context/menuContext';
 
 export const Header = () => {
   const navLinks: string[] = data.map((item: PlanetI) => item.name);
+  const { toggle } = useMenuContext();
 
   return (
     <nav className={styles.nav}>
@@ -26,7 +28,12 @@ export const Header = () => {
           </Link>
         ))}
       </section>
-      <img src={hamburger} alt="hamburger icon" className={styles.menu} />
+      <img
+        src={hamburger}
+        alt="hamburger icon"
+        className={styles.menu}
+        onClick={toggle}
+      />
     </nav>
   );
 };

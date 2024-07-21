@@ -14,7 +14,7 @@ const Sectionbutton = ({ isActive, name, ...rest }: Props) => {
         ['--color' as string]:
           planetColors[name.toLowerCase() as keyof PlanetColorsI],
       }}
-      className={`${isActive ? styles.active : ''} ${styles.section_btn}`}
+      className={`${styles.section_btn} ${isActive ? styles.active : ''} `}
       {...rest}
     />
   );

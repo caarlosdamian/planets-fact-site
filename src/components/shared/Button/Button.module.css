@@ -12,6 +12,7 @@
   text-transform: uppercase;
   padding: 8px 20px;
   min-width: 281px;
+  width: 100%;
   display: flex;
   gap: 18px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -22,16 +23,8 @@
   opacity: 0.5;
 }
 
-.active{
-  
-}
-
-.light-blue {
-  background-color: var(--light-blue);
-}
-
-.orange {
-  background-color: var(--orange);
+.active {
+  background-color: var(--color);
 }
 
 @media (min-width: 1025px) {

@@ -32,3 +32,32 @@
   text-transform: uppercase;
   color: white;
 }
+
+@media (min-width: 768px) {
+  .info_btn {
+    flex-direction: column;
+    width: 164px;
+    height: 88px;
+    gap: 6px;
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1024px) {
+  .info_btn {
+    width: 255px;
+    height: 128px;
+  }
+
+  .info_label {
+    font-size: 11px;
+    line-height: 25px; /* 200% */
+    letter-spacing: 1px;
+  }
+
+  .info_value {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+}
