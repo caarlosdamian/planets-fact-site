@@ -1,0 +1,42 @@
+.btn {
+  border: none;
+  background: none;
+  outline: none;
+  color: #fff;
+  font-family: var(--spartan);
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: 1.929px;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  min-width: 281px;
+  display: flex;
+  gap: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.btn_label {
+  opacity: 0.5;
+}
+
+.active{
+  
+}
+
+.light-blue {
+  background-color: var(--light-blue);
+}
+
+.orange {
+  background-color: var(--orange);
+}
+
+@media (min-width: 1025px) {
+  .btn {
+    font-size: 12px;
+    letter-spacing: 2.571px;
+  }
+}
