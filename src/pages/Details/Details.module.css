@@ -29,6 +29,8 @@
   margin-bottom: 36px;
   max-width: 1110px;
   margin: 0 auto;
+  /* padding: 0 140px; */
+  padding: 0 24px;
 }
 .img_content_container {
   display: flex;
@@ -42,6 +44,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .content {
